@@ -96,7 +96,7 @@ export default function MoviePage() {
         Tilbake
       </Link>
 
-      // Hovedseksjon for filmens plakat og informasjon
+      {/* Hovedseksjon for filmens plakat og informasjon */}
       <section className="detail-hero">
         {/* Filmplakat og fallback hvis ikke tilgjengelig */}
         <aside className="detail-poster">
