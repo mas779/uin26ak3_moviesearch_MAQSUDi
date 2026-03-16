@@ -86,7 +86,7 @@ export default function HomePage() {
     <>
       {/* Hovedseksjon med tittel og søkefelt */}
       <section className="hero">
-        <h1>Finn din neste <em>favorittfilm</em></h1>
+        <h1 id= "overskrift">Finn din neste <em>favorittfilm</em></h1>
         <p>Søk blant tusenvis av filmer fra OMDB-databasen</p>
         {/* Kontrollert komponent: SearchBar sender endringer tilbake til query-state */}
         <SearchBar value={query} onChange={setQuery} />

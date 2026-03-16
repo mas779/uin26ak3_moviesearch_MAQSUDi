@@ -1,30 +1,31 @@
-// React Router brukes for klient-side ruting mellom sider
+// React Router brukes til å navigere mellom sider i appen uten å laste siden på nytt
 import { Routes, Route } from 'react-router-dom'
 
-// Sider i appen
+// Importerer sidene som finnes i appen
 import HomePage from './pages/HomePage'
 import MoviePage from './pages/MoviePage'
 
-// Felles toppnavigasjon
+// Headeren er toppmenyen som vises på alle sider
 import Header from './components/Header'
 
-// Globale CSS-stiler for appen
+// Globale CSS-stiler for hele appen
 import './App.css'
 
-// Rotkomponenten for appen
-// Setter opp felles layout + routing for alle sider
+// Hovedkomponenten i appen
+// Her setter vi opp layouten og bestemmer hvilke sider som skal vises basert på URL
 export default function App() {
   return (
-    // Fragment brukes for å avgrense flere sibling-elementer uten ekstra DOM-noder
+    // Fragment lar oss returnere flere elementer uten å legge til en ekstra div i HTML
     <>
-      {/* Toppnavigasjon som vises på alle sider */}
+      {/* Headeren ligger øverst og vises uansett hvilken side brukeren er på */}
       <Header />
 
-      {/* Ruting: velger hvilken side som vises basert på URL */}
+      {/* Routes bestemmer hvilken komponent som skal vises basert på URL */}
       <Routes>
-        {/* Hjemmesiden (søkegrensesnitt) */}
+        {/* Forsiden av appen */}
         <Route path="/" element={<HomePage />} />
-        {/* Filmside som viser detaljer basert på slug + query param */}
+
+        {/* Filmsiden viser detaljer om en film basert på slug i URL */}
         <Route path="/:movie" element={<MoviePage />} />
       </Routes>
     </>
