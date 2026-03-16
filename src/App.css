@@ -47,7 +47,7 @@ nav {
 }
 
 .logo span {
-  /* Den lyse delen av logoen ('search') */
+  /* Den lyse delen av logoen som er 'search' */
   color: var(--text);
   font-weight: 400;
 }
@@ -116,7 +116,7 @@ nav {
 }
 
 .search-input {
-  /* Duplikat? Denne ser ut som den samme som over – kanskje fjern eller kombiner */
+  /* Duplikat av .search-input – kan fjernes eller slås sammen */
   width: 100%;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -189,7 +189,7 @@ nav {
 }
 
 .movie-card figure {
-  /* Container for filmplakat med fast aspect-ratio (2:3 som filmer) */
+  /* Container for filmplakat med fast aspect-ratio */
   position: relative;
   aspect-ratio: 2/3;
   overflow: hidden;
@@ -360,7 +360,7 @@ nav {
 }
 
 .detail-title {
-  /* Hovedtittel for filmen på detaljsiden, responsiv størrelse */
+  /* Viser filmtittel med responsiv størrelse */
   font-family: 'Playfair Display', serif;
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 900;
@@ -369,7 +369,7 @@ nav {
 }
 
 .detail-meta {
-  /* Sekundær info som år, lengde, aldersgrense */
+  /* Viser ekstra info som år, spilletid og aldersgrense */
   display: flex;
   flex-wrap: wrap;
   gap: 1.25rem;
@@ -403,7 +403,7 @@ nav {
 }
 
 .detail-stat dt {
-  /* Definisjonstittel for hver stat (f.eks. "Regi") */
+  /* Tittel for hver info-rad, som "Regi" */
   font-size: 0.7rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -412,7 +412,7 @@ nav {
 }
 
 .detail-stat dd {
-  /* Verdi for hver stat (f.eks. regissørens navn) */
+  /* Verdi for hver stat, f.eks. regissørens navn */
   font-size: 0.95rem;
   color: var(--text);
 }
@@ -432,7 +432,7 @@ nav {
   margin-bottom: 1.5rem;
 }
 
-
+/* Footer nederst på siden med dempet stil og skillelinje */
 footer {
   border-top: 1px solid var(--border);
   padding: 2rem clamp(1rem, 5vw, 4rem);

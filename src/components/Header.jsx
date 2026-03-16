@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom' // Importerer Link for klient-side navigasjon i React Router
-
+// Importerer Link for klient-side navigasjon i React Router
+import { Link } from 'react-router-dom' 
 // Enkel toppnavigasjon med logo og merke
 // Header-komponent som gir konsistent navigasjon på tvers av sider
 export default function Header() {

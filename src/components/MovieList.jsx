@@ -2,8 +2,8 @@ import MovieCard from './MovieCard'
 
 // Komponent som viser en liste med filmer i et rutenett
 // Props:
-// - movies: array av filmobjekter fra OMDB API
-// - label: tekst som vises over listen (f.eks. "Søkeresultater")
+// movies: array av filmobjekter fra OMDB API
+// label: tekst som vises over listen
 export default function MovieList({ movies, label }) {
   return (
     // Semantisk seksjon for å gruppere filmlisten med en overskrift

@@ -16,7 +16,7 @@ export default function HomePage() {
   const [query, setQuery] = useState('')
   // Liste over søkresultater
   const [results, setResults] = useState([])
-  // Eksempeldata (James Bond) vist før bruker søker
+  // Viser James Bond filmer før bruker søker
   const [bondMovies, setBondMovies] = useState([])
   // Laster status
   const [loading, setLoading] = useState(false)
@@ -46,36 +46,45 @@ export default function HomePage() {
       return
     }
 
-    setLoading(true) // Vis loading-indikator
-    setError(null) // Nullstill eventuelle tidligere feil
+    // Vis loading-indikator
+    setLoading(true)
+    // Nullstill eventuelle tidligere feil
+    setError(null)
 
+    // Prøv å søke etter filmer og håndter resultatet
     try {
+      // Hent søkeresultater fra API-et basert på søkeverdien
       const data = await searchMovies(value)
+      // Oppdater state med de hentede resultatene
       setResults(data)
+      // Hvis ingen filmer ble funnet, sett en passende feilmelding
       if (data.length === 0) setError('Ingen filmer funnet for dette søket.')
     } catch {
-      // Fange opp nettverksfeil eller API-feil
+      // Fange opp nettverksfeil eller API-feil og vis en generisk feilmelding
       setError('Noe gikk galt. Prøv igjen.')
     } finally {
-      // Skjul loading uansett resultat
+      // Skjul loading-indikatoren uansett om søket lyktes eller feilet
       setLoading(false)
     }
   }, [])
 
   // Debounce: vent litt før vi kjører søket (bruker 400ms timeout)
-  // Dette gjør at vi ikke sender kall til API for hvert tastetrykk
+  // Dette gjør at vi ikke sender kall til API for hvert tastetrykk, noe som reduserer belastningen
   useEffect(() => {
+    // Sett en timer som kjører søkefunksjonen etter 400ms
     const timer = setTimeout(() => handleSearch(query), 400)
-    return () => clearTimeout(timer) // Rydd opp timeout hvis query endrer seg raskt
+    // Rydd opp timeout hvis query endrer seg før tiden er ute (for å unngå unødvendige kall)
+    return () => clearTimeout(timer)
   }, [query, handleSearch])
 
   // Bruker dette flagget for å vite om brukeren faktisk søker
   // (vi ignorerer søkestrenger som er for korte, som når brukeren skriver)
   const isSearching = query.length >= 3
 
+  // Tegn opp komponenten
   return (
     <>
-      {/* Hero-seksjon med søkefelt */}
+      {/* Hovedseksjon med tittel og søkefelt */}
       <section className="hero">
         <h1>Finn din neste <em>favorittfilm</em></h1>
         <p>Søk blant tusenvis av filmer fra OMDB-databasen</p>
@@ -104,7 +113,7 @@ export default function HomePage() {
         <MovieList movies={results} label={`${results.length} resultater for "${query}"`} />
       )}
 
-      {/* Når brukeren ikke søker, vis en standardliste (f.eks. James Bond) */}
+      {/* Når brukeren ikke søker, vis en standardliste f.eks. James Bond */}
       {!isSearching && bondMovies.length > 0 && (
         <MovieList movies={bondMovies} label="James Bond — klassiske filmer" />
       )}

@@ -1,7 +1,7 @@
 // Søkefelt-komponent som sender søketeksten tilbake til forelderen via onChange
 // Props:
-// - value: Gjeldende søketekst som vises i feltet
-// - onChange: Funksjon som kalles når brukeren skriver, for å oppdatere søket
+// value: Gjeldende søketekst som vises i feltet
+// onChange: Funksjon som kalles når brukeren skriver, for å oppdatere søket
 export default function SearchBar({ value, onChange }) {
   return (
     <section className="search-wrap">

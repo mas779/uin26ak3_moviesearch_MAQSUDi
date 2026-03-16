@@ -1,3 +1,4 @@
+// For navigasjon mellom sider i React Router
 import { Link } from 'react-router-dom' // For navigasjon mellom sider i React Router
 
 // Komponent som viser en fallback når filmen ikke har en plakat
@@ -17,9 +18,7 @@ function NoPoster() {
 }
 
 // Hovedkomponent for å vise et filmkort
-// Props: movie - objekt med filmdata fra OMDB API
-// Hovedkomponent for å vise et filmkort
-// Props: movie - objekt med filmdata fra OMDB API
+// Props: movie er objekt med filmdata fra OMDB API
 export default function MovieCard({ movie }) {
   // Lag en liten «slug» basert på tittelen for URL-en
   // Erstatter mellomrom med bindestrek og gjør til små bokstaver for URL-vennlighet
