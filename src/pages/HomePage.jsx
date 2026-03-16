@@ -5,8 +5,8 @@ import { useState, useEffect, useCallback } from 'react'
 import { searchMovies } from '../api/omdb'
 
 // UI-komponenter brukt på forsiden:
-// - MovieList: viser filmer i et responsivt rutenett
-// - SearchBar: kontrollerer søkeordet ("query")
+// MovieList viser filmer i et responsivt rutenett
+// SearchBar kontrollerer søkeordet 
 import MovieList from '../components/MovieList'
 import SearchBar from '../components/SearchBar'
 
@@ -33,7 +33,7 @@ export default function HomePage() {
 
     // Kjør asynkront kall og sett stanser med resultatene
     fetchBond()
-  }, []) // Tom avhengighetsliste betyr: kjør kun én gang
+  }, []) // Tom avhengighetsliste betyr kjør kun én gang
 
   // Søkefunksjon som kalles når søkestrengen endrer seg
   // Bruk useCallback for å unngå at funksjonen skapes på nytt ved hver render
@@ -45,7 +45,6 @@ export default function HomePage() {
       setError(null)
       return
     }
-
     // Vis loading-indikator
     setLoading(true)
     // Nullstill eventuelle tidligere feil
@@ -68,7 +67,7 @@ export default function HomePage() {
     }
   }, [])
 
-  // Debounce: vent litt før vi kjører søket (bruker 400ms timeout)
+  // Debounce vent litt før vi kjører søket (bruker 400ms timeout)
   // Dette gjør at vi ikke sender kall til API for hvert tastetrykk, noe som reduserer belastningen
   useEffect(() => {
     // Sett en timer som kjører søkefunksjonen etter 400ms

@@ -16,7 +16,6 @@ function NoPoster() {
     </section>
   )
 }
-
 // Hovedkomponent for å vise et filmkort
 // Props: movie er objekt med filmdata fra OMDB API
 export default function MovieCard({ movie }) {
